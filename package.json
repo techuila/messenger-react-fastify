@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "client": "pnpm --filter client",
+    "web": "pnpm --filter web",
     "server": "pnpm --filter server"
   },
   "keywords": [],
