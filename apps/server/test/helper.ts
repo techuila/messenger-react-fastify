@@ -5,18 +5,18 @@ import * as test from 'node:test'
 
 export type TestContext = {
   after: typeof test.after
-};
+}
 
 const AppPath = path.join(__dirname, '..', 'src', 'app.ts')
 
 // Fill in this config with all the configurations
 // needed for testing the application
-async function config () {
+async function config() {
   return {}
 }
 
 // Automatically build and tear down our instance
-async function build (t: TestContext) {
+async function build(t: TestContext) {
   // you can set all the options supported by the fastify CLI command
   const argv = [AppPath]
 
@@ -31,7 +31,4 @@ async function build (t: TestContext) {
   return app
 }
 
-export {
-  config,
-  build
-}
+export { config, build }
