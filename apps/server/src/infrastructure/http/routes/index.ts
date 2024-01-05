@@ -1,9 +1,7 @@
-import { initTRPC } from '@trpc/server'
+import { publicProcedure, router } from '~/infrastructure/http/utils/trpc'
 
-export const t = initTRPC.create()
-
-export const appRouter = t.router({
-  getMessage: t.procedure.query(() => {
+export const appRouter = router({
+  getMessage: publicProcedure.query(() => {
     return 'world'
   }),
 })

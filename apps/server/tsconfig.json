@@ -8,5 +8,5 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "app.ts"]
+  "include": ["src/**/*.ts", "app.ts", "trpc.ts", "drizzle.config.ts"]
 }

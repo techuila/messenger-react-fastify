@@ -8,7 +8,7 @@ import {
 } from '@trpc/server/adapters/fastify'
 import { FastifyPluginAsync } from 'fastify'
 import { appRouter, type AppRouter } from '~/infrastructure/http/routes'
-import { createContext } from '~/infrastructure/http/context/context'
+import { createContext } from '~/infrastructure/http/utils/context'
 import cors from '@fastify/cors'
 
 export interface AppOptions
@@ -17,10 +17,11 @@ export interface AppOptions
 // Pass --options via CLI arguments in command to enable these options.
 export const options: AppOptions = {}
 
-export const createServer: () => FastifyPluginAsync<AppOptions> =
-  () =>
+export const createServer: (_: () => void) => FastifyPluginAsync<AppOptions> =
+  (cb: () => void) =>
   async (fastify, opts): Promise<void> => {
     // Place here your custom code!
+    cb()
 
     void fastify.register(cors, {
       hook: 'preHandler',
@@ -43,14 +44,14 @@ export const createServer: () => FastifyPluginAsync<AppOptions> =
     // those should be support plugins that are reused
     // through your application
     void fastify.register(AutoLoad, {
-      dir: join(__dirname, 'plugins'),
+      dir: join(__dirname, '..', 'plugins'),
       options: opts,
     })
 
     // This loads all plugins defined in routes
     // define your routes in one of these
     void fastify.register(AutoLoad, {
-      dir: join(__dirname, 'routes'),
+      dir: join(__dirname, '..', 'routes'),
       options: opts,
     })
   }
