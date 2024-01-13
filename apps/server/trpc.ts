@@ -1,1 +1,1 @@
-export { type AppRouter } from '~/infrastructure/http/routes'
+export { type AppRouter } from '~/infrastructure/http/routes/trpc'
