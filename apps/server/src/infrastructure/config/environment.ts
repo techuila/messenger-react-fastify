@@ -1,12 +1,10 @@
-export const environment = (() => {
-  const DATABASE_URL = process.env.DATABASE_URL
-  if (!DATABASE_URL) throw new Error('DATABASE_URL is not set')
+import { z } from 'zod'
+export const env = (() => {
+  const envSchema = z.object({
+    DATABASE_URL: z.string(),
+    GOOGLE_CLIENT_ID: z.string(),
+    GOOGLE_CLIENT_SECRET: z.string(),
+  })
 
-  const environment = {
-    database: {
-      url: DATABASE_URL,
-    },
-  }
-
-  return environment
+  return envSchema.parse(process.env)
 })()
