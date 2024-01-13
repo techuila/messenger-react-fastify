@@ -52,11 +52,11 @@ CREATE TABLE IF NOT EXISTS "user_channel" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "user" (
 	"id" serial NOT NULL,
+	"sub" text NOT NULL,
 	"hash" text NOT NULL,
 	"name" varchar NOT NULL,
 	"email" varchar NOT NULL,
 	"photo_url" varchar,
-	"token" text NOT NULL,
 	"status" varchar NOT NULL,
 	"is_active" boolean DEFAULT true NOT NULL,
 	"created_at" timestamp DEFAULT now(),

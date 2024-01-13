@@ -1,5 +1,5 @@
 {
-  "id": "c9a78ee9-854d-493e-9c6e-20156b816fc9",
+  "id": "d088b09b-5e05-41e4-9193-d79ced75033b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -297,6 +297,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "sub": {
+          "name": "sub",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
         "hash": {
           "name": "hash",
           "type": "text",
@@ -320,12 +326,6 @@
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
-        },
-        "token": {
-          "name": "token",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
         },
         "status": {
           "name": "status",
