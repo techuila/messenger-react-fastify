@@ -39,6 +39,7 @@
   "devDependencies": {
     "@types/module-alias": "^2.0.4",
     "@types/node": "^20.4.4",
+    "@types/node-fetch": "^2.6.10",
     "@types/tap": "^15.0.5",
     "concurrently": "^8.2.2",
     "drizzle-kit": "^0.20.9",

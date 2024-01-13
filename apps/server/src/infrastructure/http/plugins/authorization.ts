@@ -14,17 +14,28 @@ export default fp(
           secret: env.GOOGLE_CLIENT_SECRET,
         },
       },
-      startRedirectPath: '/login/google',
-      callbackUri: 'http://localhost:3000/login/google/callback',
+      startRedirectPath: '/auth/google',
+      callbackUri: 'http://localhost:3000/auth/google/callback',
       discovery: {
         issuer: 'https://accounts.google.com',
       },
-      // check if your provider supports PKCE,
-      // in case they do,
-      // use of this parameter is highly encouraged
-      // in order to prevent authorization code interception attacks
+    })
+
+    void fastify.register(oauthPlugin, {
+      name: 'githubOAuth2',
+      scope: ['read:user', 'user:email'],
+      credentials: {
+        client: {
+          id: env.GITHUB_CLIENT_ID,
+          secret: env.GITHUB_CLIENT_SECRET,
+        },
+        auth: oauthPlugin.GITHUB_CONFIGURATION,
+      },
+      startRedirectPath: '/auth/github',
+      callbackUri: 'http://localhost:3000/auth/github/callback',
     })
   },
+
   {
     name: 'authorization',
   },
@@ -33,5 +44,6 @@ export default fp(
 declare module 'fastify' {
   interface FastifyInstance {
     googleOAuth2: OAuth2Namespace
+    githubOAuth2: OAuth2Namespace
   }
 }
