@@ -1,5 +1,5 @@
 {
-  "id": "d088b09b-5e05-41e4-9193-d79ced75033b",
+  "id": "4aa958fa-9f02-491a-aa03-1459cca25400",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -331,13 +331,14 @@
           "name": "status",
           "type": "varchar",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false,
+          "default": "'OFFLINE'"
         },
         "is_active": {
           "name": "is_active",
           "type": "boolean",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "default": true
         },
         "created_at": {

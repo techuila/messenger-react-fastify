@@ -57,8 +57,8 @@ CREATE TABLE IF NOT EXISTS "user" (
 	"name" varchar NOT NULL,
 	"email" varchar NOT NULL,
 	"photo_url" varchar,
-	"status" varchar NOT NULL,
-	"is_active" boolean DEFAULT true NOT NULL,
+	"status" varchar DEFAULT 'OFFLINE',
+	"is_active" boolean DEFAULT true,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );
