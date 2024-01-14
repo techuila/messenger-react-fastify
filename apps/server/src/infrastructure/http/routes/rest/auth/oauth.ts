@@ -26,10 +26,7 @@ const oauth: FastifyPluginAsync = async (fastify) => {
         'X-GitHub-Api-Version': '2022-11-28',
       },
     }).then((res) => {
-      if (!res.ok) {
-        throw new Error(res.statusText)
-      }
-
+      if (!res.ok) throw new Error(res.statusText)
       return res.json()
     })
 
