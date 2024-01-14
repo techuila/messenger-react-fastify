@@ -8,7 +8,7 @@ export abstract class BaseRepository<T extends { hashId: string }> {
     protected table: PgTableWithColumns<TableConfig>,
   ) {
     this.findOneByHashId = this.findOneByHashId.bind(this)
-    this.findManyByHashId = this.findManyByHashId.bind(this)
+    this.findManyByHashIds = this.findManyByHashIds.bind(this)
     this.create = this.create.bind(this)
     this.updateByHashId = this.updateByHashId.bind(this)
     this.deleteByHashId = this.deleteByHashId.bind(this)
