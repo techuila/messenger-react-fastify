@@ -1,11 +1,4 @@
-import {
-  serial,
-  text,
-  varchar,
-  boolean,
-  timestamp,
-  pgTable,
-} from 'drizzle-orm/pg-core'
+import { serial, text, varchar, boolean, timestamp, pgTable } from 'drizzle-orm/pg-core'
 
 export const channel = pgTable('channel', {
   id: serial('id'),

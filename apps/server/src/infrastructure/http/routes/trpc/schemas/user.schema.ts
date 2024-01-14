@@ -3,11 +3,11 @@ import { Status } from '~/core/entities/user'
 
 export const UserSchema = z.object({
   id: z.number(),
+  sub: z.string(),
   hashId: z.string(),
   name: z.string(),
   email: z.string().email(),
   photoUrl: z.string().url().nullable(),
-  token: z.string(),
   status: z.union([z.literal(Status.ONLINE), z.literal(Status.OFFLINE)]),
   isActive: z.boolean(),
   createdAt: z.string().datetime(),

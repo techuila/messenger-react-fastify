@@ -7,11 +7,7 @@ export const UserChannelSchema = z.object({
   userId: z.string(),
   channelId: z.string(),
   nickname: z.string().nullable(),
-  status: z.union([
-    z.literal(Status.JOINED),
-    z.literal(Status.LEFT),
-    z.literal(Status.KICKED),
-  ]),
+  status: z.union([z.literal(Status.JOINED), z.literal(Status.LEFT), z.literal(Status.KICKED)]),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime().default(new Date().toISOString()),
 })

@@ -9,9 +9,7 @@ export const migrate = {
     try {
       const migrationClient = postgres(env.DATABASE_URL, { max: 1 })
       await _migrate(drizzle(migrationClient), {
-        migrationsFolder: ['src', 'infrastructure', 'database', 'drizzle'].join(
-          '/',
-        ),
+        migrationsFolder: ['src', 'infrastructure', 'database', 'drizzle'].join('/'),
       })
 
       await migrationClient.end()
@@ -20,3 +18,5 @@ export const migrate = {
     }
   },
 }
+
+export const db = drizzle(postgres(env.DATABASE_URL))
