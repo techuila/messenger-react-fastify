@@ -1,0 +1,19 @@
+.btn {
+  color: var(--primary-text);
+  background-color: var(--light-gray-color);
+  border-style: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--light-gray-color);
+}
+
+.ghost {
+  background-color: transparent;
+}
