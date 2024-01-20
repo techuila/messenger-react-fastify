@@ -1,4 +1,4 @@
-import { publicProcedure, router } from '~/infrastructure/utils/trpc'
+import { publicProcedure, router } from '../../../utils/trpc'
 
 export const appRouter = router({
   getMessage: publicProcedure.query(() => {
