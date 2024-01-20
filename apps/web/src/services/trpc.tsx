@@ -7,14 +7,19 @@ type Props = {
   children?: React.ReactNode
 }
 
-export const Provider: React.FC<Props> = ({ children }) => {
+export const TRPCProvider: React.FC<Props> = ({ children }) => {
   const [queryClient] = useState(() => new QueryClient())
   const [trpcClient] = useState(() =>
     trpc.createClient({
       links: [
         httpBatchLink({
           url: 'http://localhost:3000/trpc',
-          // You can pass any HTTP headers you wish here
+          fetch(url, options) {
+            return fetch(url, {
+              ...options,
+              credentials: 'include',
+            })
+          },
         }),
       ],
     }),
