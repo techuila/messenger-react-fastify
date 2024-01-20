@@ -7,11 +7,16 @@ type Props = {
   secondary?: boolean
   ghost?: boolean
   className?: string
+  onClick?: () => void
 }
 
-function Button({ children, primary, secondary, ghost, className }: Props) {
+function Button({ children, primary, secondary, ghost, className, onClick }: Props) {
   const variant = primary ? style.primary : secondary ? style.secondary : ghost ? style.ghost : style.secondary
-  return <button className={clx(style.btn, className, variant)}>{children}</button>
+  return (
+    <button className={clx(style.btn, className, variant)} onClick={onClick}>
+      {children}
+    </button>
+  )
 }
 
 export default Button

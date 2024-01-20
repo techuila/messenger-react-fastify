@@ -11,7 +11,12 @@ function Login() {
       <h5 className={style.subtitle}>The simple way to text, call and video chat directly from you desktop.</h5>
 
       <div className={style.loginActions}>
-        <Button className={style.googleBtn}>
+        <Button
+          className={style.googleBtn}
+          onClick={() => {
+            window.location.href = 'http://localhost:3000/auth/google'
+          }}
+        >
           <img src={GoogleLogo} alt="Google Logo" /> Login with Google
         </Button>
         <Button className={style.githubBtn}>
