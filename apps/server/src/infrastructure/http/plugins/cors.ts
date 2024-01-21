@@ -4,7 +4,7 @@ import { env } from '~/infrastructure/config/environment'
 
 export default fp(
   async (fastify) => {
-    void fastify.register(cors, {
+    await fastify.register(cors, {
       hook: 'preHandler',
       origin: (origin, cb) => {
         // Allow requests from your React application's domain

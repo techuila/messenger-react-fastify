@@ -20,17 +20,18 @@ export class AuthService implements IAuthService {
   }
 
   async fetchUserInfoFromGithub(access_token: string) {
-    return (await fetch('https://api.github.com/user', {
+    const res = await fetch('https://api.github.com/user', {
       method: 'GET',
       headers: {
         Accept: 'application/vnd.github+json',
         Authorization: `Bearer ${access_token}`,
         'X-GitHub-Api-Version': '2022-11-28',
       },
-    }).then((res) => {
-      if (!res.ok) throw new Error(res.statusText)
-      return res.json()
-    })) as Record<string, any>
+    })
+
+    if (!res.ok) throw Error('Failed to fetch user info from Github')
+
+    return res.json() as Record<string, any>
   }
 
   async verifyGithubAccessToken(access_token: string) {

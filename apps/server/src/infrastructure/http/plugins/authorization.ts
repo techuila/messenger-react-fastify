@@ -5,7 +5,7 @@ import { env } from '~/infrastructure/config/environment'
 export default fp(
   async (fastify) => {
     // @ts-expect-error: typings of @fastify/oauth2 needs to be updated for this case
-    void fastify.register(oauthPlugin, {
+    await fastify.register(oauthPlugin, {
       name: 'googleOAuth2',
       scope: ['profile', 'email'],
       credentials: {
@@ -21,7 +21,7 @@ export default fp(
       },
     })
 
-    void fastify.register(oauthPlugin, {
+    await fastify.register(oauthPlugin, {
       name: 'githubOAuth2',
       scope: ['read:user', 'user:email'],
       credentials: {

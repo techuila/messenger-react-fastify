@@ -36,7 +36,6 @@ export class AuthController {
   }
 
   githubCallback = async (request: FastifyRequest, reply: FastifyReply) => {
-    console.log(this.fastify)
     const { token } = await this.fastify.githubOAuth2.getAccessTokenFromAuthorizationCodeFlow(request)
 
     const user_info = await this.authService.fetchUserInfoFromGithub(token.access_token)

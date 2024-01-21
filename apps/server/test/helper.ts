@@ -1,13 +1,26 @@
+import * as moduleAlias from 'module-alias'
+moduleAlias.addAlias('~', __dirname + '/../src')
 // This file contains code that we reuse between our tests.
-const helper = require('fastify-cli/helper.js')
+import * as helper from 'fastify-cli/helper.js'
 import * as path from 'path'
 import * as test from 'node:test'
+import { z } from 'zod'
+
+export const env = (() => {
+  const envSchema = z.object({
+    SAMPLE_GOOGLE_ID_TOKEN: z.string(),
+    SAMPLE_GITHUB_ACCESS_TOKEN: z.string(),
+    SAMPLE_GITHUB_USER_SUB: z.string(),
+  })
+
+  return envSchema.parse(process.env)
+})()
 
 export type TestContext = {
   after: typeof test.after
 }
 
-const AppPath = path.join(__dirname, '..', 'src', 'app.ts')
+const AppPath = path.join(__dirname, '..', 'app.ts')
 
 // Fill in this config with all the configurations
 // needed for testing the application

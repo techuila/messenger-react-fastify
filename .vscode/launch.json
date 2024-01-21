@@ -10,6 +10,15 @@
       "name": "Run Fastify Server",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run", "server", "start"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run Fastify Tests",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run", "server", "test"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }

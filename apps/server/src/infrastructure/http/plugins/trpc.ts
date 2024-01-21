@@ -5,7 +5,7 @@ import { createContext } from '~/infrastructure/utils/context'
 
 export default fp(
   async (fastify) => {
-    void fastify.register(fastifyTRPCPlugin, {
+    await fastify.register(fastifyTRPCPlugin, {
       prefix: '/trpc',
       trpcOptions: {
         router: appRouter,
