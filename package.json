@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nx run-many -t test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "web": "pnpm --filter web",
@@ -23,7 +23,8 @@
     "eslint-plugin-prettier": "^5.1.2",
     "prettier": "^3.1.1",
     "typescript": "^5.2.2",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "nx": "17.2.8"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
