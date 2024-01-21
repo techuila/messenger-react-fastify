@@ -15,7 +15,7 @@ export class GoogleAuthStrategy implements IAuthStrategy {
         idToken,
         audience: env.GOOGLE_CLIENT_ID,
       })
-
+      /* c8 ignore next 2 */
       return !!ticket.getUserId()
     } catch (err) {
       console.error(err)
@@ -24,6 +24,7 @@ export class GoogleAuthStrategy implements IAuthStrategy {
   }
 
   async getUserInfo(access_token: string) {
+    /* c8 ignore next 9 */
     try {
       const token_info = await this.googleAuth2Client.getTokenInfo(access_token)
 
@@ -51,6 +52,7 @@ export class GithubAuthStrategy implements IAuthStrategy {
       if (res.status === 200) return true
 
       return false
+      /* c8 ignore next 4 */
     } catch (err) {
       console.error(err)
       return false

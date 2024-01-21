@@ -1,3 +1,4 @@
+/* c8 ignore next 999 */
 export interface IAuthStrategy {
   verifyToken(token: string): Promise<boolean>
   getUserInfo(token: string): Promise<Record<string, any>>

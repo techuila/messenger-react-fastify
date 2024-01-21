@@ -11,7 +11,7 @@ describe('Auth Service Test', async () => {
     authService.setAuthOption(new GoogleAuthStrategy())
 
     test('Google ID token should not be valid', async () => {
-      const isValid = await authService.verifyToken(env.SAMPLE_GOOGLE_ID_TOKEN)
+      const isValid = await authService.verifyToken(env.TEST_GOOGLE_ID_TOKEN)
       assert.equal(isValid, false)
     })
   })
@@ -21,7 +21,7 @@ describe('Auth Service Test', async () => {
     authService.setAuthOption(new GithubAuthStrategy())
 
     test('Github access token should be valid', async () => {
-      const isValid = await authService.verifyToken(env.SAMPLE_GITHUB_ACCESS_TOKEN)
+      const isValid = await authService.verifyToken(env.TEST_GITHUB_ACCESS_TOKEN)
       assert.equal(isValid, true)
     })
 
@@ -31,8 +31,8 @@ describe('Auth Service Test', async () => {
     })
 
     test('getUserInfo should return user info', async () => {
-      const userInfo = await authService.getUserInfo(env.SAMPLE_GITHUB_ACCESS_TOKEN)
-      assert.equal(userInfo.id, env.SAMPLE_GITHUB_USER_SUB)
+      const userInfo = await authService.getUserInfo(env.TEST_GITHUB_ACCESS_TOKEN)
+      assert.equal(userInfo.id, env.TEST_GITHUB_USER_SUB)
     })
 
     test('getUserInfo should return an error', async () => {
