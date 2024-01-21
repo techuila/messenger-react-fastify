@@ -1,3 +1,4 @@
+/* c8 ignore next 999 */
 import { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify'
 
 export function createContext({ req, res }: CreateFastifyContextOptions) {

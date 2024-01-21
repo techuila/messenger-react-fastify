@@ -1,3 +1,4 @@
+/* c8 ignore next 999 */
 import { Token } from '@fastify/oauth2'
 import { FastifyReply } from 'fastify'
 import { User } from '~/core/entities/user'

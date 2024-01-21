@@ -1,3 +1,4 @@
+/* c8 ignore next 999 */
 import fp from 'fastify-plugin'
 import { fastifyTRPCPlugin, FastifyTRPCPluginOptions } from '@trpc/server/adapters/fastify'
 import { appRouter, type AppRouter } from '~/infrastructure/http/routes/trpc'

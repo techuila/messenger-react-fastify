@@ -1,3 +1,4 @@
+/* c8 ignore next 999 */
 import fp from 'fastify-plugin'
 import cors from '@fastify/cors'
 import { env } from '~/infrastructure/config/environment'

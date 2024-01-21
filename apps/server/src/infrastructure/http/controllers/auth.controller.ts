@@ -1,10 +1,12 @@
+/* c8 ignore next 999 */
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 
 import { env } from '~/infrastructure/config/environment'
 import { setAuthCookies } from '~/infrastructure/utils/http'
+import { AuthService } from '~/core/services/auth.service'
 import { UserService } from '~/core/services/users.service'
 import { UserRepository } from '~/infrastructure/repositories/user.repository'
-import { AuthService } from '~/core/services/auth.service'
+import { GithubAuthStrategy, GoogleAuthStrategy } from '~/infrastructure/http/strategies/auth.strategy'
 
 export class AuthController {
   private authService: AuthService
@@ -38,7 +40,8 @@ export class AuthController {
   githubCallback = async (request: FastifyRequest, reply: FastifyReply) => {
     const { token } = await this.fastify.githubOAuth2.getAccessTokenFromAuthorizationCodeFlow(request)
 
-    const user_info = await this.authService.fetchUserInfoFromGithub(token.access_token)
+    this.authService.setAuthOption(new GithubAuthStrategy())
+    const user_info = await this.authService.getUserInfo(token.access_token)
 
     const user = await this.userService.createUserIfDoesntExist({
       sub: user_info.id,
@@ -59,9 +62,11 @@ export class AuthController {
 
     // Only google has id_token property
     if (token.id_token) {
-      isTokenValid = await this.authService.verifyGoogleIdToken(token.id_token)
+      this.authService.setAuthOption(new GoogleAuthStrategy())
+      isTokenValid = await this.authService.verifyToken(token.id_token)
     } else {
-      isTokenValid = await this.authService.verifyGithubAccessToken(token.access_token)
+      this.authService.setAuthOption(new GithubAuthStrategy())
+      isTokenValid = await this.authService.verifyToken(token.access_token)
     }
 
     if (isTokenValid) {

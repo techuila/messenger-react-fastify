@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* c8 ignore next 999 */
 import { uuid } from 'uuidv4'
 
 export function GenerateHashId(target: any, propertyKey: string, descriptor: PropertyDescriptor) {

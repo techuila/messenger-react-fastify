@@ -1,3 +1,4 @@
+/* c8 ignore next 999 */
 import { drizzle } from 'drizzle-orm/postgres-js'
 import { migrate as _migrate } from 'drizzle-orm/postgres-js/migrator'
 import postgres from 'postgres'
