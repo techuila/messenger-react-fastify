@@ -1,5 +1,5 @@
 {
-  "id": "4aa958fa-9f02-491a-aa03-1459cca25400",
+  "id": "26e120a9-c5c2-48d1-80fe-8c2cef178583",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -182,6 +182,12 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "attachment_id": {
+          "name": "attachment_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "user_channel_id": {
           "name": "user_channel_id",

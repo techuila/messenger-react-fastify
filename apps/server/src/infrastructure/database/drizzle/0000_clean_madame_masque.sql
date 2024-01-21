@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS "chat_mention" (
 CREATE TABLE IF NOT EXISTS "chat" (
 	"id" serial NOT NULL,
 	"hash" text NOT NULL,
+	"attachment_id" text,
 	"user_channel_id" text NOT NULL,
 	"user_id" text NOT NULL,
 	"reply_to_chat_id" text,

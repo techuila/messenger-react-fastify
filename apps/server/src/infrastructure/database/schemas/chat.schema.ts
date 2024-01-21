@@ -3,6 +3,7 @@ import { serial, text, timestamp, pgTable } from 'drizzle-orm/pg-core'
 export const chat = pgTable('chat', {
   id: serial('id'),
   hashId: text('hash').notNull(),
+  attachmentId: text('attachment_id'),
   userChannelId: text('user_channel_id').notNull(),
   userId: text('user_id').notNull(),
   replyToChatId: text('reply_to_chat_id'),
